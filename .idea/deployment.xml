@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" serverName="itcapstone">
+  <component name="PublishConfigData" serverName="itcapstone" uploadOnCheckin="b84b8793-5375-449d-a0f6-2e49b1147dc2">
     <serverData>
       <paths name="itcapstone">
         <serverdata>
@@ -10,5 +10,6 @@
         </serverdata>
       </paths>
     </serverData>
+    <option name="myUploadOnCheckinName" value="itcapstone" />
   </component>
 </project>
