@@ -1,7 +1,8 @@
 <?php
   session_start();
-  $windowTitle = "D&D Character Info - Home"; // Window title for each page, used inside header.php include.
-  $pageTitle = "Home"; // Page title goes here, used inside the nav.php include.
+  //require 'authenticate.php'; // Uncomment Page will authenticate whether use is logged in
+  $windowTitle = "WINDOW TITLE"; // Window title for each page, used inside header.php include.
+  $pageTitle = "INSERT TITLE OF PAGE HERE"; // Page title goes here, used inside the nav.php include.
 
   include 'templates/header.php' // Header to handle css links and
 
@@ -13,10 +14,10 @@
 
       // Content Start
     ?>
-    <div class="container">
+      <div class="container">
 
 
-    </div>
+      </div>
     <?php
       // Content End
     ?>
