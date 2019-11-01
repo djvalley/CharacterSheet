@@ -1,10 +1,10 @@
 <?php
     header("Content-type: text/css; charset: UTF-8");
 
-$backgroundColor = 0;
+$lightGreyBackgroundColor = '#AAAAAA';
 
-
-$navBackgroundColor = 0;
+$navBackgroundColor = '#000000';
+$navHoverColor = '#CCCCCC';
 
 
 ?>
@@ -41,11 +41,12 @@ $navBackgroundColor = 0;
 }
 
 body {
-    background-color: #AAAAAA;
+    background-color: <?= $lightGreyBackgroundColor ?>;
     font-family: DickensScript, serif;
 }
 
 h1 {
+    background-color: <?= $lightGreyBackgroundColor ?>;
     font-family: morpheusregular, serif;
 }
 
@@ -64,7 +65,34 @@ h1 {
     width: 90%;
     margin: auto;
     text-align: center;
+    min-height: 600px;
 }
+
+.container {
+    padding: 2rem;
+}
+
+
+label, input {
+    margin: 5px;
+}
+
+.account {
+    width: 50%;
+    margin: auto;
+}
+
+.account label {
+    display: inline-block;
+    text-align: right;
+    width: 20%;
+}
+
+.account select {
+    width: 173px;
+}
+
+
 
 <?php
 include "nav.css.php";

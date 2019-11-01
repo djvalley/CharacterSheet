@@ -2,27 +2,31 @@
   session_start();
   $windowTitle = "D&D Character Info - Home"; // Window title for each page, used inside header.php include.
   $pageTitle = "Home"; // Page title goes here, used inside the nav.php include.
-
-  include 'templates/header.php' // Header to handle css links and
-
 ?>
-<body>
-  <div class="wrapper">
-    <?php
-      include 'templates/nav.php'; // Nav template
+<!doctype html>
+<html lang="en">
+  <?php
+    include 'templates/header.php' // Header to handle css links and
 
-      // Content Start
-    ?>
-    <div class="container">
 
-    <p>TEST: DAKOTA</p>
+  ?>
+  <body>
+    <div class="wrapper">
+      <?php
+        include 'templates/nav.php'; // Nav template
+
+        // Content Start
+      ?>
+      <div class="container">
+
+
+      </div>
+      <?php
+        // Content End
+      ?>
     </div>
     <?php
-      // Content End
+      include "templates/js.php"; // Javascript script includes
     ?>
-  </div>
-  <?php
-    include "templates/js.php"; // Javascript script includes
-  ?>
-</body>
+  </body>
 </html>
