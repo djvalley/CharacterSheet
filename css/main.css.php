@@ -61,15 +61,31 @@ h1 {
     display: block;
 }
 
-.wrapper {
-    width: 90%;
-    margin: auto;
+div.container > h2 {
+    font-size: 2rem;
+    letter-spacing: 4px;
+    display: block;
+    background-color: #5b5b5b;
+    color: <?= $navHoverColor ?>;
+    padding: 1rem;
+    border-radius: 5px;
     text-align: center;
+}
+
+div.container > p {
+    text-align: center;
+}
+
+.wrapper {
+    width: 75%;
+    margin: auto;
     min-height: 600px;
 }
 
 .container {
-    padding: 2rem;
+    padding: 1.5rem;
+    width: 75%;
+    margin: auto;
 }
 
 
@@ -78,19 +94,38 @@ label, input {
 }
 
 .account {
-    width: 50%;
+    width: 75%;
+    margin: auto;
+    text-align: left;
+}
+
+.account > form {
+    text-align: center;
+    display: table;
+    width: 65%;
     margin: auto;
 }
 
+.account > row {
+    display: table-row;
+    float: left;
+}
+
+.account label, .account input {
+    display: table-cell;
+}
+
 .account label {
-    display: inline-block;
+    width: 125px;
     text-align: right;
-    width: 20%;
 }
 
 .account select {
+    display: table-cell;
     width: 173px;
+    margin: 5px;
 }
+
 
 
 

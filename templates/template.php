@@ -17,7 +17,7 @@
       // Content Start
     ?>
     <div class="container">
-
+      <?= $pageTitle ?>
 
     </div>
     <?php

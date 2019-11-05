@@ -18,6 +18,8 @@
       ?>
       <div class="container">
 
+        <h2><?= $pageTitle ?></h2>
+
         <?php
           $logout = sanitizeString(INPUT_GET, 'logout');
           if (isset($logout) && $logout == 1) {
@@ -34,19 +36,27 @@
             if (!isset($createAccount) || $createAccount != 1) {
               // If not creating account then login to existing account
               ?>
+
+
               <p>Need an account? <a href="login.php?create=1">Create Account</a></p>
 
               <div class="account">
                 <form action="" method="post">
-                  <label for="username">
-                    <i class="fa fa-user"></i>
-                  </label>
-                  <input type="text" name="username" placeholder="Username" id="username" required><br>
-                  <label for="password">
-                    <i class="fa fa-lock"></i>
-                  </label>
-                  <input type="password" name="password" placeholder="Password" id="password" required><br>
-                  <input name="submit" type="submit" value="Login">
+                  <row>
+                    <label for="username">
+                      <i class="fa fa-user"></i>
+                    </label>
+                    <input type="text" name="username" placeholder="Username" id="username" required><br>
+                  </row>
+                  <row>
+                    <label for="password">
+                      <i class="fa fa-lock"></i>
+                    </label>
+                    <input type="password" name="password" placeholder="Password" id="password" required><br>
+                  </row>
+                  <row>
+                    <input name="submit" type="submit" value="Login">
+                  </row>
                 </form>
               </div>
 
@@ -57,22 +67,32 @@
               // Create Account Form
               ?>
 
-              <h3>Create Account</h3>
+              <h2>Create Account</h2>
 
               <div class="account">
                 <form action="login.php" method="post">
-                  <label for="username">Username:</label>
-                  <input type="text" name="username" id="username" required><br>
-                  <label for="email">Email:</label>
-                  <input type="email" name="email" id="email" required><br>
-                  <label for="accountType">Account Type:</label>
-                  <select id="accountType" name="accountType" required>
-                    <option value="Player">Player</option>
-                    <option value="DM">DM</option>
-                  </select><br>
-                  <label for="password">Password:</label>
-                  <input type="password" name="password" id="password" required><br>
-                  <input type="submit" name="submit" value="Create">
+                  <row>
+                    <label for="username">Username:</label>
+                    <input type="text" name="username" id="username" required>
+                  </row>
+                  <row>
+                    <label for="email">Email:</label>
+                    <input type="email" name="email" id="email" required>
+                  </row>
+                  <row>
+                    <label for="accountType">Account Type:</label>
+                    <select id="accountType" name="accountType" required>
+                      <option value="Player">Player</option>
+                      <option value="DM">DM</option>
+                    </select>
+                  </row>
+                  <row>
+                    <label for="password">Password:</label>
+                    <input type="password" name="password" id="password" required>
+                  </row>
+                  <row>
+                    <input type="submit" name="submit" value="Create">
+                  </row>
                 </form>
               </div>
               <?php

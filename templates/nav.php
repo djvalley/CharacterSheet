@@ -1,6 +1,6 @@
 <?php
 ?>
-<h1><?= $pageTitle ?></h1>
+<h1>D&D Character Info Sheet</h1>
 <div class="navbar">
   <a href="/index.php">Home</a>
   <div class="dropdown">
