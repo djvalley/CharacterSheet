@@ -1,18 +1,32 @@
 <?php
   session_start();
-  require 'templates/header.php'
-
+  //require 'authenticate.php'; // Uncomment Page will authenticate whether use is logged in
+  $windowTitle = "D&D Character Info - Characters"; // Window title for each page, used inside header.php include.
+  $pageTitle = "Characters"; // Page title goes here, used inside the nav.php include.
 ?>
-<body>
-  <div class="wrapper">
-    <?php
-      $title = "D&D Character Info";
-      require 'templates/nav.php';
-    ?>
-
-  </div>
+<!doctype html>
+<html lang="en">
   <?php
-    include "templates/js.php";
+    include 'templates/header.php' // Header to handle css links and
+
   ?>
-</body>
+  <body>
+    <div class="wrapper">
+      <?php
+        include 'templates/nav.php'; // Nav template
+
+        // Content Start
+      ?>
+      <div class="container">
+
+
+      </div>
+      <?php
+        // Content End
+      ?>
+    </div>
+    <?php
+      include "templates/js.php"; // Javascript script includes
+    ?>
+  </body>
 </html>

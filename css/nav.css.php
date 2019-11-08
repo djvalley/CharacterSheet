@@ -6,7 +6,7 @@
 /* Navbar container */
 .navbar {
     overflow: hidden;
-    background-color: #AAAAAA;
+    background-color: <?= $lightGreyBackgroundColor ?>;
     font-family: morpheusregular, serif;
     font-weight: bold;
     letter-spacing: 2px;
@@ -18,7 +18,7 @@
 .navbar a {
     float: left;
     font-size: 16px;
-    color: #000000;
+    color: <?= $navBackgroundColor ?>;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -48,16 +48,16 @@
 
 /* Add a red background color to navbar links on hover */
 .navbar a:hover, .dropdown:hover .dropbtn {
-    background-color: #CCCCCC;
+    background-color: <?= $navHoverColor ?>;
 }
 
 /* Dropdown content (hidden by default) */
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #AAAAAA;
+    background-color: <?= $lightGreyBackgroundColor ?>;
     min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
     z-index: 1;
 }
 
@@ -69,11 +69,6 @@
     text-decoration: none;
     display: block;
     text-align: left;
-}
-
-/* Add a grey background color to dropdown links on hover */
-.dropdown-content:hover {
-    background-color: rgba(18, 23, 28, 1);
 }
 
 /* Show the dropdown menu on hover */
