@@ -2,10 +2,11 @@
   session_start();
   $windowTitle = "D&D Character Info - Home"; // Window title for each page, used inside header.php include.
   $pageTitle = "Home"; // Page title goes here, used inside the nav.php include.
+  require 'resources/tools.php';
 ?>
 <!doctype html>
 <html lang="en">
-  <?php
+<?php
     include 'templates/header.php' // Header to handle css links and
 
 

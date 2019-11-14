@@ -30,14 +30,13 @@
 
           $createAccount = sanitizeString(INPUT_GET, 'create');
           $submitPressed = sanitizeString(INPUT_POST, 'submit');
-
+          $errorMsg = sanitizeString(INPUT_GET, 'error');
           if (!isset($submitPressed)) {
             // If no submit button pressed then login or create account
             if (!isset($createAccount) || $createAccount != 1) {
               // If not creating account then login to existing account
+              echo "<h3 class='error'>$errorMsg</h3>";
               ?>
-
-
               <p>Need an account? <a href="login.php?create=1">Create Account</a></p>
 
               <div class="account">
@@ -99,7 +98,7 @@
 
               // End of account creation form
             }
-          } else { // Submit button is pressed
+          } else { // Submit login button is pressed
 
             $message = "";
 
@@ -108,7 +107,7 @@
               // Log into account
               $username = sanitizeString(INPUT_POST, 'username');
 
-              $query = "SELECT id, password, email, accountType FROM accounts WHERE username = '$username'";
+              $query = "SELECT userID, password, email, accountType FROM accounts WHERE username = '$username'";
 
               $resultSet = $pdo->query($query);
               $result = $resultSet->fetch();
@@ -119,22 +118,22 @@
 
                   session_regenerate_id();
                   $_SESSION['authenticated'] = TRUE;
-                  $_SESSION['id'] = $result['id'];
+                  $_SESSION['userID'] = $result['userID'];
                   $_SESSION['email'] = $result['email'];
                   $_SESSION['accountType'] = $result['accountType'];
 
                 } else {
-                  $message .= "Incorrect Password Please try again";
+                  $message .= "Incorrect Password Please try again. ";
                 }
               } else {
                 $message .= "Incorrect Username Please try again.";
               }
 
-              if (strlen($message > 1)) {
+              if (strlen($message) > 2){
                 echo $message;
               } else {
-                echo "Logged in successfully.";
-
+                echo "Login Successful.";
+                echo "<meta http-equiv='refresh' content='0;url=index.php'>";
               }
 
             } else {
@@ -155,7 +154,7 @@
               $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
               $accountType = sanitizeString(INPUT_POST, 'accountType');
 
-              $query = "SELECT id, password FROM accounts WHERE username = '$username'";
+              $query = "SELECT userID, password FROM accounts WHERE username = '$username'";
               $result = $pdo->query($query)->rowCount();
 
               if ($result > 0) {

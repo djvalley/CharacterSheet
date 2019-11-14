@@ -126,8 +126,22 @@ label, input {
     margin: 5px;
 }
 
+.error {
+    text-align: center;
+    color: red;
 
+}
 
+<?php
+// The following code is used for styling the stat tables
+?>
+.stats {
+    border-collapse: separate;
+}
+
+.stats, .stats td, .stats th {
+    border: 1px solid #5b5b5b;
+}
 
 <?php
 include "nav.css.php";

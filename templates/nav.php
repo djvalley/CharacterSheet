@@ -7,7 +7,19 @@
     <button class="dropbtn"><a href="/characters.php">Characters <i class="fa fa-caret-down"></i></a>
     </button>
     <div class="dropdown-content">
-      <a href="/myCharacters.php">My Characters</a>
+      <?php
+        if (isset($_SESSION['authenticated'])) {
+          $query = "SELECT characterID, characterName FROM characters
+                WHERE userID = $_SESSION[userID]";
+          $characters = $pdo->query($query);
+
+          foreach ($characters as $character) {
+            echo "<a href='/characters.php?charID=$character[characterID]'>$character[characterName]</a>";
+          }
+        } else {
+          echo "<a href='/login.php'>Login to View</a>";
+        }
+      ?>
     </div>
   </div>
   <div class="dropdown">
