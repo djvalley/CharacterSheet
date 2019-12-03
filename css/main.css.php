@@ -61,6 +61,28 @@ h1 {
     display: block;
 }
 
+#greeting > img {
+    display: inline-block;
+    height: 75px;
+    width: auto;
+    float: left;
+}
+
+#greeting {
+    height: 80px;
+    width: fit-content;
+    display: block;
+    margin: auto;
+    text-align: center;
+}
+
+#greeting > h1 {
+    display: inline-block;
+    height: 100%;
+    margin: 0 15px;
+    float: left;
+}
+
 div.container > h2 {
     font-size: 2rem;
     letter-spacing: 4px;
@@ -76,8 +98,9 @@ div.container > p {
     text-align: center;
 }
 
+
 .wrapper {
-    width: 75%;
+    width: 85%;
     margin: auto;
     min-height: 600px;
 }
@@ -136,13 +159,34 @@ label, input {
 // The following code is used for styling the stat tables
 ?>
 .stats {
-    border-collapse: separate;
+    border-collapse: collapse;
+    display: inline-block;
+    vertical-align: top;
+}
+
+table.stats h3 {
+    font-size: 1.5rem;
 }
 
 .stats, .stats td, .stats th {
     border: 1px solid #5b5b5b;
+    padding: 5px;
 }
 
+.mainStats > table {
+    height: 100%;
+    margin: auto;
+}
+
+.mainStats {
+    width: fit-content;
+    margin: auto;
+}
+
+#inventory {
+    width: 95%;
+    height: 100px;
+}
 <?php
 include "nav.css.php";
 
