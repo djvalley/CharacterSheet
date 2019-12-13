@@ -26,7 +26,19 @@
     <button class="dropbtn"><a href="/groups.php">Groups <i class="fa fa-caret-down"></i></a>
     </button>
     <div class="dropdown-content">
-      <a href="/myGroups.php">My Groups</a>
+        <?php
+        if (isset($_SESSION['authenticated'])) {
+            $query = "SELECT groupID, groupName FROM characters LEFT JOIN groups USING (groupID)
+                WHERE userID = $_SESSION[userID]";
+            $groups = $pdo->query($query);
+
+            foreach ($groups as $group) {
+                echo "<a href='/groups.php?groupID=$group[groupID]'>$group[groupName]</a>";
+            }
+        } else {
+            echo "<a href='/login.php'>Login to View</a>";
+        }
+        ?>
     </div>
   </div>
   <?php
