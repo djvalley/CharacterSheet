@@ -28,5 +28,30 @@
   $hitDice = sanitizeString(INPUT_POST, 'hitDice');
   $deathSaves = sanitizeString(INPUT_POST, 'deathSaves');
 
+  // Statpoints DB
+  $strength = sanitizeString(INPUT_POST, 'strength');
+  $dexterity = sanitizeString(INPUT_POST, 'dexterity');
+  $constitution = sanitizeString(INPUT_POST, 'constitution');
+  $intelligence = sanitizeString(INPUT_POST, 'intelligence');
+  $wisdom = sanitizeString(INPUT_POST, 'wisdom');
+  $charisma = sanitizeString(INPUT_POST, 'charisma');
 
-  $deathSaves = sanitizeString(INPUT_POST, 'characterID');
+  // Skills DB
+  $acrobatics = sanitizeString(INPUT_POST, 'acrobatics');
+  $medicine = sanitizeString(INPUT_POST, 'medicine');
+  $animalHandling = sanitizeString(INPUT_POST, 'animalHandling');
+  $nature = sanitizeString(INPUT_POST, 'nature');
+  $arcana = sanitizeString(INPUT_POST, 'arcana');
+  $perception = sanitizeString(INPUT_POST, 'perception');
+  $athletics = sanitizeString(INPUT_POST, 'athletics');
+  $performance = sanitizeString(INPUT_POST, 'performance');
+  $deception = sanitizeString(INPUT_POST, 'deception');
+  $persuasion = sanitizeString(INPUT_POST, 'persuasion');
+  $history = sanitizeString(INPUT_POST, 'history');
+  $religion = sanitizeString(INPUT_POST, 'religion');
+  $insight = sanitizeString(INPUT_POST, 'insight');
+  $sleightOfHand = sanitizeString(INPUT_POST, 'sleightOfHand');
+  $intimidation = sanitizeString(INPUT_POST, 'intimidation');
+  $stealth = sanitizeString(INPUT_POST, 'stealth');
+  $investigation = sanitizeString(INPUT_POST, 'investigation');
+  $survival = sanitizeString(INPUT_POST, 'survival');
