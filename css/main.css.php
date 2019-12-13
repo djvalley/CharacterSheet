@@ -1,12 +1,8 @@
 <?php
     header("Content-type: text/css; charset: UTF-8");
-
 $lightGreyBackgroundColor = '#AAAAAA';
-
 $navBackgroundColor = '#000000';
 $navHoverColor = '#CCCCCC';
-
-
 ?>
 
 @font-face {
@@ -45,6 +41,21 @@ body {
     font-family: DickensScript, serif;
 }
 
+div.container > h2 {
+    font-size: 2rem;
+    letter-spacing: 4px;
+    display: block;
+    background-color: #5b5b5b;
+    color: <?= $navHoverColor ?>;
+    padding: 1rem;
+    border-radius: 5px;
+    text-align: center;
+}
+
+div.container > p {
+    text-align: center;
+}
+
 h1 {
     background-color: <?= $lightGreyBackgroundColor ?>;
     font-family: morpheusregular, serif;
@@ -59,6 +70,14 @@ h1 {
     letter-spacing: .5rem;
     text-align: center;
     display: block;
+}
+
+label, input {
+    margin: 5px;
+}
+
+table.stats h3 {
+    font-size: 1.5rem;
 }
 
 #greeting > img {
@@ -83,19 +102,9 @@ h1 {
     float: left;
 }
 
-div.container > h2 {
-    font-size: 2rem;
-    letter-spacing: 4px;
-    display: block;
-    background-color: #5b5b5b;
-    color: <?= $navHoverColor ?>;
-    padding: 1rem;
-    border-radius: 5px;
-    text-align: center;
-}
-
-div.container > p {
-    text-align: center;
+#inventory {
+    width: 95%;
+    height: 100px;
 }
 
 
@@ -111,9 +120,10 @@ div.container > p {
     margin: auto;
 }
 
+.wrapperGroups {
+    box-shadow: 5px 3px 3px #444444;
+    display: inline-block;
 
-label, input {
-    margin: 5px;
 }
 
 .account {
@@ -164,10 +174,6 @@ label, input {
     vertical-align: top;
 }
 
-table.stats h3 {
-    font-size: 1.5rem;
-}
-
 .stats, .stats td, .stats th {
     border: 1px solid #5b5b5b;
     padding: 5px;
@@ -183,10 +189,7 @@ table.stats h3 {
     margin: auto;
 }
 
-#inventory {
-    width: 95%;
-    height: 100px;
-}
+
 <?php
 include "nav.css.php";
 
