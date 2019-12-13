@@ -41,7 +41,7 @@ body {
     font-family: DickensScript, serif;
 }
 
-div.container > h2 {
+div.container h2 {
     font-size: 2rem;
     letter-spacing: 4px;
     display: block;
@@ -187,6 +187,10 @@ table.stats h3 {
 .mainStats {
     width: fit-content;
     margin: auto;
+}
+
+.hidden {
+    display: none;
 }
 
 

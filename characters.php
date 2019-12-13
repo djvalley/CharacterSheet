@@ -33,7 +33,7 @@
         // Content Start
       ?>
       <div class="container">
-
+        <form action="characterUpdate.php" method="post">
         <?php
 
           foreach ($data
@@ -44,14 +44,14 @@
           echo "<h3>Please make sure you are logged into the correct account before trying to access</h3>";
         } else {
           echo <<<CHARBLOCK
-<h2>$row[characterName]<button>Edit</button><input type="submit" name="updateChar" value="Save"> </h2>
-<form action="characterUpdate.php" method="post">
+
+<h2>$row[characterName]<button type="button" id="editCharacter">Edit</button><input type="submit" name="updateChar" value="Save"> </h2>
 <div class="mainStats">
 <table class="character stats">
   <tr>
     <th colspan="2"><h3>Basic Info</h3></th>
   </tr>
-  <tr>
+  <tr class="hidden">
     <th>CharacterID</th>
     <td><input disabled type="number" id="characterID" name="characterID" value="$row[characterID]"></td>
   </tr>

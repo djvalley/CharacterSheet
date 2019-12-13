@@ -1,5 +1,7 @@
 <?php
 
+  require 'resources/tools.php';
+  
   //Input Sanitization
 
   // CharacterID
@@ -28,7 +30,7 @@
   $hitDice = sanitizeString(INPUT_POST, 'hitDice');
   $deathSaves = sanitizeString(INPUT_POST, 'deathSaves');
 
-  // Statpoints DB
+  // Stats DB
   $strength = sanitizeString(INPUT_POST, 'strength');
   $dexterity = sanitizeString(INPUT_POST, 'dexterity');
   $constitution = sanitizeString(INPUT_POST, 'constitution');
@@ -55,3 +57,68 @@
   $stealth = sanitizeString(INPUT_POST, 'stealth');
   $investigation = sanitizeString(INPUT_POST, 'investigation');
   $survival = sanitizeString(INPUT_POST, 'survival');
+  
+  // Traits DB
+  $personalityTraits = sanitizeString(INPUT_POST, 'personalityTraits');
+  $ideals = sanitizeString(INPUT_POST, 'ideals');
+  $bonds = sanitizeString(INPUT_POST, 'bonds');
+  $flaws = sanitizeString(INPUT_POST, 'flaws');
+  $proficiencies = sanitizeString(INPUT_POST, 'proficiencies');
+  $languages = sanitizeString(INPUT_POST, 'languages');
+  
+  // Equipment DB
+  $cp = sanitizeString(INPUT_POST, 'CP');
+  $sp = sanitizeString(INPUT_POST, 'SP');
+  $ep = sanitizeString(INPUT_POST, 'EP');
+  $gp = sanitizeString(INPUT_POST, 'GP');
+  $pp = sanitizeString(INPUT_POST, 'PP');
+  $longDesc = sanitizeString(INPUT_POST, 'inventory');
+  
+  
+try {
+  
+  $pdo->beginTransaction();
+  
+  $characterQuery = "UPDATE characters SET playerName=?, class=?, level=?, race=?, background=?,
+                     expPoints=?, alignment=?, inspiration=?, proficiencyBonus=?, passiveStat=?, passiveStatNum=?
+                     WHERE characterID = $characterId";
+  $lifeQuery = "UPDATE lifeState SET armorClass=?, initiative=?, speed=?, hpMax=?, hpCurrent=?, hpTemp=?, hitDice=?, deathSaves=?
+                WHERE characterID = $characterId";
+  $statsQuery = "UPDATE stats SET strength=?, dexterity=?, constitution=?, intelligence=?, wisdom=?, charisma=?
+                 WHERE characterID = $characterId";
+  $skillsQuery = "UPDATE skills SET acrobatics=?, animalHandling=?, arcana=?, athletics=?, deception=?, history=?, insight=?, intimidation=?,
+                  investigation=?, medicine=?, nature=?, perception=?, performance=?, persuasion=?, religion=?, sleightOfHand=?, stealth=?, survival=?
+                  WHERE characterID = $characterId";
+  $traitsQuery = "UPDATE traits SET personalityTraits=?, ideals=?, bonds=?, flaws=?, proficiencies=?, languages=?
+                  WHERE characterID = $characterId";
+  $equipmentQuery = "UPDATE equipment SET CP=?, SP=?, EP=?, GP=?, PP=?, longDesc=?
+                     WHERE characterID = $characterId";
+  
+  $stmt = $pdo->prepare($characterQuery);
+  $stmt->execute([$playerName, $class, $level, $race, $background, $expPoints, $alignment, $inspiration, $proficiencyBonus, $passiveStat, $passiveStatNum]);
+  
+  $stmt = $pdo->prepare($lifeQuery);
+  $stmt->execute([$armorClass, $initiative, $speed, $hpMax, $hpCurrent, $hpTemp, $hitDice, $deathSaves]);
+  
+  $stmt = $pdo->prepare($statsQuery);
+  $stmt->execute([$strength, $dexterity, $constitution, $intelligence, $wisdom, $charisma]);
+  
+  $stmt = $pdo->prepare($skillsQuery);
+  $stmt->execute([$acrobatics, $animalHandling, $arcana, $athletics, $deception, $history, $insight, $intimidation, $investigation, $medicine, $nature, $perception, $performance, $persuasion, $religion, $sleightOfHand, $stealth, $survival]);
+  
+  $stmt = $pdo->prepare($traitsQuery);
+  $stmt->execute([$personalityTraits, $ideals, $bonds, $flaws, $proficiencies, $languages]);
+  
+  $stmt = $pdo->prepare($equipmentQuery);
+  $stmt->execute([$cp, $sp, $ep, $gp, $pp, $longDesc]);
+  
+  $pdo->commit();
+  
+} catch (PDOException $e) {
+  
+  $pdo->rollBack();
+  echo "Failed: " . $e->getMessage();
+  
+}
+
+header("Location: https://itcapstone.djvalley.com/characters.php?charID=$characterId");
