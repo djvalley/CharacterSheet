@@ -34,7 +34,9 @@
 
             foreach ($groups as $group) {
                 echo "<a href='/groups.php?groupID=$group[groupID]'>$group[groupName]</a>";
+
             }
+                echo "<a href='createGroup.php'>Create Group</a>";
         } else {
             echo "<a href='/login.php'>Login to View</a>";
         }
