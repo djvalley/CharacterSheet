@@ -241,7 +241,7 @@ table.stats h3 {
 
 .container {
     padding: 1.5rem;
-    width: 75%;
+    width: 90%;
     margin: auto;
 }
 
@@ -320,6 +320,7 @@ table.stats h3 {
 
 
 <?php
+include 'character.css.php';
 include "nav.css.php";
 
 ?>
