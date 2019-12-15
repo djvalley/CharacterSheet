@@ -89,6 +89,7 @@ body {
 
 #groupNameLinks {
     text-decoration: none;
+    color: black;
 }
 
 #groupNameLinks:visited {
