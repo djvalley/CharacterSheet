@@ -221,6 +221,10 @@
     padding-right: 3%;
 }
 
+#skillsTable1 table, #skillsTable2 table {
+    border-collapse: collapse;
+}
+
 .skillStat {
     width: 60%;
     margin-left: 20%;
