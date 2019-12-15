@@ -36,10 +36,114 @@ $navHoverColor = '#CCCCCC';
     font-style: normal;
 }
 
+#bodyBackground {
+    background-image: url(../images/dndLogo1_2.png);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+
+}
+
 body {
     background-color: <?= $lightGreyBackgroundColor ?>;
     font-family: DickensScript, serif;
 }
+
+/* CSS for the Intro and Dwarves */
+.welcomeDiv {
+    content-align: center;
+    width: 90%;
+    display: block;
+    margin-left: 5%;
+}
+
+#leftDwarf {
+    margin-left: 2%;
+    width: 25%;
+    height: 15%;
+    float: left;
+}
+
+
+#rightDwarf {
+    width: 25%;
+    height: 15%;
+}
+
+.welcomeTrav {
+    background-color: transparent;
+    padding-right: 0;
+    width: 45%;
+    display: inline;
+    text-align: center;
+    margin-left: 2%;
+    float: left;
+}
+
+#introCont {
+    display: inline;
+    padding-right: 0;
+    width: 45%;
+    text-align: center;
+    margin-left: 2%;
+    float: left;
+}
+
+.booksTable {
+    margin: auto;
+}
+
+.booksTable h2, .booksTable p {
+    text-align: center;
+}
+
+
+/* Content Div */
+.contentDiv {
+    padding-top: 50px;
+    font-family: verdana;
+    font-weight: 500;
+    margin: auto;
+    text-align: center;
+
+}
+
+.contentDiv > img {
+    margin: auto;
+}
+
+/* Bolding the Links */
+a {
+    font-weight: bold;
+}
+
+/* Table CSS */
+table.indexTable {
+    background-image: url(../images/dndTableBackground.jfif);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: 100% auto;
+    border-collapse: collapse;
+    opacity: 0.9;
+    margin: auto;
+    position: relative;
+}
+
+
+td > img {
+    width: 250px;
+    height: 250px;
+}
+
+table, th, td {
+    border: 3px solid black;
+}
+
+td.description {
+    text-align: center;
+}
+
 
 div.container h2 {
     font-size: 2rem;

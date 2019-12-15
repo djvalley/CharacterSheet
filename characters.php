@@ -3,11 +3,11 @@
   require 'authenticate.php'; // Uncomment Page will authenticate whether user is logged in
   $windowTitle = "D&D Character Info - Characters"; // Window title for each page, used inside header.php include.
   $pageTitle = "Characters"; // Page title goes here, used inside the nav.php include.
-
+  
   require 'resources/tools.php';
-
+  
   $charID = sanitizeString(INPUT_GET, 'charID');
-
+  
   $query = "SELECT * FROM characters c
               LEFT JOIN traits t USING (characterID)
               LEFT JOIN stats s USING (characterID)
@@ -23,29 +23,36 @@
 <html lang="en">
   <?php
     include 'templates/header.php' // Header to handle css links and
-
+  
   ?>
   <body>
     <div class="wrapper">
       <?php
         include 'templates/nav.php'; // Nav template
-
+        
         // Content Start
       ?>
       <div class="container">
         <form action="characterUpdate.php" method="post">
-        <?php
+          <?php
+            
+            foreach ($data
+            
+            as $row) {
+            //          if ($row['userID'] != $_SESSION['userID']) {
+            //          echo "<h2>Invalid User</h2>";
+            //          echo "<h3>Please make sure you are logged into the correct account before trying to access</h3>";
+            //        } else {
+            $editBtn = "";
+            
+            if ($row['userID'] == $_SESSION['userID']) {
+              $editBtn = "<button type='button' id='editCharacter'>Edit</button><input type='submit' name='updateChar' value='Save'>";
+            }
+            
+            echo "<h2>$row[characterName]$editBtn</h2>";
+            
+            echo <<<CHARBLOCK
 
-          foreach ($data
-
-          as $row) {
-          if ($row['userID'] != $_SESSION['userID']) {
-          echo "<h2>Invalid User</h2>";
-          echo "<h3>Please make sure you are logged into the correct account before trying to access</h3>";
-        } else {
-          echo <<<CHARBLOCK
-
-<h2>$row[characterName]<button type="button" id="editCharacter">Edit</button><input type="submit" name="updateChar" value="Save"> </h2>
 <div class="mainStats">
 <table class="character stats">
   <tr>
@@ -101,9 +108,9 @@
   </tr>
 </table>
 CHARBLOCK;
-
-
-          echo <<<LIFEBLOCK
+            
+            
+            echo <<<LIFEBLOCK
 <table class="life stats">
   <tr>
     <th colspan="2"><h3>Life State</h3></th>
@@ -143,8 +150,8 @@ CHARBLOCK;
 
 </table>
 LIFEBLOCK;
-
-          echo <<<STATBLOCK
+            
+            echo <<<STATBLOCK
 <table class="statpoint stats">
   <tr>
     <th colspan="2"><h3>Stats</h3></th>
@@ -176,7 +183,7 @@ LIFEBLOCK;
 
 </table>
 STATBLOCK;
-        ?>
+          ?>
       </div>
     <?php
       echo <<<SKILLSBLOCK
@@ -240,7 +247,7 @@ STATBLOCK;
   </tr>
 </table>
 SKILLSBLOCK;
-
+      
       echo <<<TRAITSBLOCK
 <table class="traits stats">
   <tr>
@@ -272,8 +279,8 @@ SKILLSBLOCK;
   </tr>
 </table>
 TRAITSBLOCK;
-
-
+      
+      
       echo <<<EQUIPBLOCK
 <table class="equipment stats">
   <tr>
@@ -299,11 +306,11 @@ TRAITSBLOCK;
   </tr>
 </table>
 EQUIPBLOCK;
-      }
+      //      }
       }
     ?>
       </form>
-
+    
     </div>
     <?php
       // Content End
