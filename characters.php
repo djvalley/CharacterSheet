@@ -6,16 +6,33 @@
   
   require 'resources/tools.php';
   
+  $createCharacter = sanitizeString(INPUT_GET, 'create');
   $charID = sanitizeString(INPUT_GET, 'charID');
   
-  $query = "SELECT * FROM characters c
+
+  $playerName = "";
+  $characterName = "";
+  
+  if (isset($createCharacter) && $createCharacter == 1) {
+    $charQuery = "SELECT characterID FROM characters
+                ORDER BY characterID DESC
+                limit 1";
+    $charRows = $pdo->query($charQuery)->fetch();
+    $charID = $charRows['characterID'] + 1;
+    $row = array('characterID' => $charID);
+    $characterName = "<input disabled type=\"text\" id=\"characterName\" name=\"characterName\" placeholder='Character Name'>";
+    $playerName = "<input disabled type=\"text\" id=\"playerName\" name=\"playerName\" placeholder='Player Name'>";
+    
+  } else {
+    $query = "SELECT * FROM characters c
               LEFT JOIN traits t USING (characterID)
               LEFT JOIN stats s USING (characterID)
               LEFT JOIN skills sk USING (characterID)
               LEFT JOIN lifeState l USING (characterID)
               LEFT JOIN equipment e USING (characterID)
             WHERE c.characterID = $charID";
-  $data = $pdo->query($query);
+    $row = $pdo->query($query)->fetch();
+  }
 ?>
 
 
@@ -36,27 +53,30 @@
         
         <?php
           
-          foreach ($data as $row) {
-            
-            $editBtn = "";
-            
-            if ($row['userID'] == $_SESSION['userID']) {
-              $editBtn = "<button type='button'>Edit</button><input type=\"submit\" name=\"updateChar\" value=\"Save\">";
-            }
-            
-            
-//            if ($row['userID'] != $_SESSION['userID']) {
-//              echo "<h2>Invalid User</h2>";
-//              echo "<h3>Please make sure you are logged into the correct account before trying to access</h3>";
-//            } else {
-            echo <<<CHARBLOCK
+          $editBtn = "";
+          
+          if ($row['userID'] == $_SESSION['userID'] || isset($createCharacter)) {
+            $editBtn = "<button type='button'>Edit</button><input type=\"submit\" name=\"updateChar\" value=\"Save\">";
+          }
+          
+          if (!isset($createCharacter)) {
+            $playerName = $row['playerName'];
+            $characterName = $row['characterName'];
+          }
+
+          
+          //            if ($row['userID'] != $_SESSION['userID']) {
+          //              echo "<h2>Invalid User</h2>";
+          //              echo "<h3>Please make sure you are logged into the correct account before trying to access</h3>";
+          //            } else {
+          echo <<<CHARBLOCK
 <form action="characterUpdate.php" method="post">
 <input disabled class="hidden" type="text" id="characterID" name="characterID" value="$row[characterID]">
 <div class = "sheetSection" id = "basicInfoBanner">
 <div id="basicLeft">
     <div id="editBtn">$editBtn</div>
-    <h1>$row[characterName] </h1>
-    <h3>$row[playerName]</h3>
+    <h1>$characterName</h1>
+    <h3>$playerName</h3>
 </div>
 <div id = "basicRight">
     <div id = "basicSection1">
@@ -348,15 +368,19 @@
 </div>
 
 CHARBLOCK;
-            
-            //}
-          }
+        
         ?>
         </form>
       
       </div>
       <?php
         // Content End
+        if (isset($createCharacter) && $createCharacter == 1) {
+          echo '<script type="text/javascript">',
+          'clearFields()',
+          '</script>';
+        }
+      
       ?>
     </div>
     <?php

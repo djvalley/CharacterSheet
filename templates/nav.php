@@ -4,9 +4,10 @@
 <div class="navbar">
   <a href="/index.php">Home</a>
   <div class="dropdown">
-    <button class="dropbtn"><a href="/characters.php">Characters <i class="fa fa-caret-down"></i></a>
+    <button class="dropbtn"><a href="/characters.php?create=1">Characters <i class="fa fa-caret-down"></i></a>
     </button>
     <div class="dropdown-content">
+      <a href='/characters.php?create=1'>New Character</a>
       <?php
         if (isset($_SESSION['authenticated'])) {
           $query = "SELECT characterID, characterName FROM characters
