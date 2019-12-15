@@ -24,6 +24,7 @@ include 'templates/header.php' // Header to handle css links and
                         <fieldset>
                             <legend>Group up!</legend>
 
+
                             <input type="text" id="groupName" name="groupName" value="" placeholder="Group name">
                             <button type='button' id='createGroup'>Create Group</button>
                         </fieldset>
