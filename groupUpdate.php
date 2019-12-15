@@ -1,5 +1,10 @@
 <?php
 
+session_start();
+require 'authenticate.php'; // Uncomment Page will authenticate whether user is logged in
+$windowTitle = "D&D Character Info - groupUpdate"; // Window title for each page, used inside header.php include.
+$pageTitle = "groupUpdate"; // Page title goes here, used inside the nav.php include.
+
 require 'resources/tools.php';
 
 //Input Sanitization

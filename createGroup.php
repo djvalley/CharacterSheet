@@ -1,7 +1,9 @@
 <?php
 session_start();
-$windowTitle = "D&D Character Info - Home"; // Window title for each page, used inside header.php include.
-$pageTitle = "Home"; // Page title goes here, used inside the nav.php include.
+require 'authenticate.php'; // Uncomment Page will authenticate whether user is logged in
+$windowTitle = "D&D Character Info - Create Group"; // Window title for each page, used inside header.php include.
+$pageTitle = "Create Group"; // Page title goes here, used inside the nav.php include.
+
 require 'resources/tools.php';
 ?>
     <!doctype html>
