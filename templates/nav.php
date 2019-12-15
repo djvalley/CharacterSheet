@@ -31,7 +31,7 @@
             $query = "SELECT groupID, groupName FROM characters LEFT JOIN groups USING (groupID)
                 WHERE userID = $_SESSION[userID]";
             $groups = $pdo->query($query);
-
+                echo "<a href='createGroup.php'>Create Group</a>";
             foreach ($groups as $group) {
                 echo "<a href='/groups.php?groupID=$group[groupID]'>$group[groupName]</a>";
             }

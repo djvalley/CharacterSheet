@@ -20,7 +20,7 @@ include 'templates/header.php' // Header to handle css links and
                 // Content Start
                 ?>
                 <div class="container">
-                    <form action="createGroup.php" method="post">
+                    <form action="groupUpdate.php" method="post">
                         <fieldset>
                             <legend>Group up!</legend>
 
