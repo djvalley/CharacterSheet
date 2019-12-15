@@ -72,22 +72,22 @@
                 <form action="login.php" method="post">
                   <row>
                     <label for="username">Username:</label>
-                    <input type="text" name="username" id="username" required>
+                    <input type="text" name="username" id="username" required><br>
                   </row>
                   <row>
                     <label for="email">Email:</label>
-                    <input type="email" name="email" id="email" required>
+                    <input type="email" name="email" id="email" required><br>
                   </row>
                   <row>
                     <label for="accountType">Account Type:</label>
                     <select id="accountType" name="accountType" required>
                       <option value="Player">Player</option>
                       <option value="DM">DM</option>
-                    </select>
+                    </select><br>
                   </row>
                   <row>
                     <label for="password">Password:</label>
-                    <input type="password" name="password" id="password" required>
+                    <input type="password" name="password" id="password" required><br>
                   </row>
                   <row>
                     <input type="submit" name="submit" value="Create">

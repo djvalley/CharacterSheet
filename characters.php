@@ -12,6 +12,7 @@
 
   $playerName = "";
   $characterName = "";
+  $queryType = "<input disabled class='hidden' type='text' id='queryType' name='queryType' value='update'>";
   
   if (isset($createCharacter) && $createCharacter == 1) {
     $charQuery = "SELECT characterID FROM characters
@@ -22,7 +23,7 @@
     $row = array('characterID' => $charID);
     $characterName = "<input disabled type=\"text\" id=\"characterName\" name=\"characterName\" placeholder='Character Name'>";
     $playerName = "<input disabled type=\"text\" id=\"playerName\" name=\"playerName\" placeholder='Player Name'>";
-    
+    $queryType = "<input disabled class='hidden' type='text' id='queryType' name='queryType' value='insert'>";
   } else {
     $query = "SELECT * FROM characters c
               LEFT JOIN traits t USING (characterID)
@@ -56,25 +57,24 @@
           $editBtn = "";
           
           if ($row['userID'] == $_SESSION['userID'] || isset($createCharacter)) {
-            $editBtn = "<button type='button'>Edit</button><input type=\"submit\" name=\"updateChar\" value=\"Save\">";
+            $editBtn = "<button type='button'>Edit</button><input disabled type='submit' name='saveCharacter' id='saveBtn' value='Save'>";
           }
+          
           
           if (!isset($createCharacter)) {
             $playerName = $row['playerName'];
             $characterName = $row['characterName'];
           }
-
           
-          //            if ($row['userID'] != $_SESSION['userID']) {
-          //              echo "<h2>Invalid User</h2>";
-          //              echo "<h3>Please make sure you are logged into the correct account before trying to access</h3>";
-          //            } else {
           echo <<<CHARBLOCK
 <form action="characterUpdate.php" method="post">
 <input disabled class="hidden" type="text" id="characterID" name="characterID" value="$row[characterID]">
+<input disabled class="hidden" type="text" id="userID" name="userID" value="$_SESSION[userID]">
+$queryType
 <div class = "sheetSection" id = "basicInfoBanner">
 <div id="basicLeft">
     <div id="editBtn">$editBtn</div>
+    <div id="deleteBtn"><button type='submit' name='deleteChar' id='deleteChar' value='$row[characterID]'>Delete</button></div>
     <h1>$characterName</h1>
     <h3>$playerName</h3>
 </div>

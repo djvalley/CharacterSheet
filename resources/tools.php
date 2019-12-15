@@ -12,7 +12,7 @@
   try {
 
     // Create new Database connection
-    $pdo = new PDO('mysql:host=itcapstone.djvalley.com:3306;dbname=CharacterInfoSheet', 'itcapstone', 'itcapstone');
+    $pdo = new PDO('mysql:host=localhost:3306;dbname=CharacterInfoSheet', 'itcapstone', 'itcapstone');
     // Set Attributes and Encoding
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $pdo->exec('SET NAMES "utf8"');

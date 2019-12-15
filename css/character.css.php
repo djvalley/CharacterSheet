@@ -48,6 +48,12 @@
     left: 2px;
 }
 
+#deleteBtn {
+    position: absolute;
+    bottom: 2px;
+    left: 2px;
+}
+
 #basicSection1 {
     width: 33%;
     float: left;
