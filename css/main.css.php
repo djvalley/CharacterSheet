@@ -36,13 +36,6 @@ $navHoverColor = '#CCCCCC';
     font-style: normal;
 }
 
-#bodyBackground {
-    background-image: url(../images/dndLogo1_2.png);
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
-
-}
 
 body {
     background-color: <?= $lightGreyBackgroundColor ?>;
@@ -64,6 +57,65 @@ body {
     float: left;
 }
 
+#bodyBackground {
+    background-image: url(../images/dndLogo1_2.png);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+
+}
+
+#greeting > img {
+    display: inline-block;
+    height: 75px;
+    width: auto;
+    float: left;
+}
+
+#greeting {
+    height: 80px;
+    width: fit-content;
+    display: block;
+    margin: auto;
+    text-align: center;
+}
+
+#greeting > h1 {
+    display: inline-block;
+    height: 100%;
+    margin: 0 15px;
+    float: left;
+}
+
+#groupNameLinks {
+    text-decoration: none;
+}
+
+#groupNameLinks:visited {
+    color: black;
+}
+
+#groupNameLinks > h3:hover {
+    transform: scale(1.2);
+}
+
+#groupNameLinks:active {
+    background color: <?= $lightGreyBackgroundColor ?>;
+}
+
+#introCont {
+    display: inline;
+    padding-right: 0;
+    width: 45%;
+    text-align: center;
+    margin-left: 2%;
+    float: left;
+}
+
+#inventory {
+    width: 95%;
+    height: 100px;
+}
 
 #rightDwarf {
     width: 25%;
@@ -80,14 +132,7 @@ body {
     float: left;
 }
 
-#introCont {
-    display: inline;
-    padding-right: 0;
-    width: 45%;
-    text-align: center;
-    margin-left: 2%;
-    float: left;
-}
+
 
 .booksTable {
     margin: auto;
@@ -184,32 +229,7 @@ table.stats h3 {
     font-size: 1.5rem;
 }
 
-#greeting > img {
-    display: inline-block;
-    height: 75px;
-    width: auto;
-    float: left;
-}
 
-#greeting {
-    height: 80px;
-    width: fit-content;
-    display: block;
-    margin: auto;
-    text-align: center;
-}
-
-#greeting > h1 {
-    display: inline-block;
-    height: 100%;
-    margin: 0 15px;
-    float: left;
-}
-
-#inventory {
-    width: 95%;
-    height: 100px;
-}
 
 
 .wrapper {

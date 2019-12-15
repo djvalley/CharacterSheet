@@ -43,7 +43,7 @@
     <div class="mainStats">
         <table class="character stats">
           <tr>
-            <th colspan="2"><h3>$row[characterName]</h3></th>
+            <th colspan="2"><a id="groupNameLinks" href='/characters.php?charID=$row[characterID]'><h3>$row[characterName]</h3></a></th>
           </tr>
           <tr>
             <th>Account Type</th>
