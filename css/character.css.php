@@ -297,19 +297,29 @@
     padding-top: 0;
 }
 
-#floatLeft {
-    width: 45%;
+.coreStatRowTwo div {
     float: left;
+    display: inline-block;
+    width: 32%;
 }
 
-#floatLeft input {
-    width: 80%;
+.coreStatRowTwo div input {
+    width: 75%;
 }
 
-#floatRight {
-    width: 45%;
-    float: right;
-}
+/*#floatLeft {*/
+/*    width: 45%;*/
+/*    float: left;*/
+/*}*/
+/**/
+/*#floatLeft input {*/
+/*    width: 80%;*/
+/*}*/
+/**/
+/*#floatRight {*/
+/*    width: 45%;*/
+/*    float: right;*/
+/*}*/
 
 #floatRight input {
     width: 80%;

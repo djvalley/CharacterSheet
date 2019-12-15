@@ -1,9 +1,6 @@
 <?php
 
 session_start();
-require 'authenticate.php'; // Uncomment Page will authenticate whether user is logged in
-$windowTitle = "D&D Character Info - groupUpdate"; // Window title for each page, used inside header.php include.
-$pageTitle = "groupUpdate"; // Page title goes here, used inside the nav.php include.
 
 require 'resources/tools.php';
 
@@ -12,9 +9,6 @@ require 'resources/tools.php';
 // CharacterID
 $groupName = sanitizeString(INPUT_POST, 'groupName');
 
-
-
-
 try {
 
     $pdo->beginTransaction();
@@ -22,7 +16,6 @@ try {
 
     $groupQuery = "UPDATE groups SET groupName=?
                      WHERE groupName = $groupName";
-
 
 
     $stmt = $pdo->prepare($groupQuery);
@@ -37,4 +30,4 @@ try {
 
 }
 
-header("Location: http://localhost/createGroup.php");
+header("Location: https://itcapstone.djvalley.com/createGroup.php");

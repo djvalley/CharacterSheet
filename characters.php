@@ -57,7 +57,7 @@
           $editBtn = "";
           
           if ($row['userID'] == $_SESSION['userID'] || isset($createCharacter)) {
-            $editBtn = "<button type='button'>Edit</button><input disabled type='submit' name='saveCharacter' id='saveBtn' value='Save'>";
+            $editBtn = "<button id='editButton' type='button'>Edit</button><input disabled type='submit' name='saveCharacter' id='saveBtn' value='Save'>";
           }
           
           
@@ -67,7 +67,7 @@
           }
           
           echo <<<CHARBLOCK
-<form action="characterUpdate.php" method="post">
+<form action="characterUpdate.php" id="characterForm" method="post">
 <input disabled class="hidden" type="text" id="characterID" name="characterID" value="$row[characterID]">
 <input disabled class="hidden" type="text" id="userID" name="userID" value="$_SESSION[userID]">
 $queryType
@@ -375,12 +375,6 @@ CHARBLOCK;
       </div>
       <?php
         // Content End
-        if (isset($createCharacter) && $createCharacter == 1) {
-          echo '<script type="text/javascript">',
-          'clearFields()',
-          '</script>';
-        }
-      
       ?>
     </div>
     <?php

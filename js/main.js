@@ -2,7 +2,7 @@ $(document).ready(function() {
 
     // START Character Edit button code
 
-    let $editCharBtn = $("button");
+    let $editCharBtn = $("#editButton");
     let $editCharStatus = false;
 
     $editCharBtn.click(function () {
@@ -16,9 +16,25 @@ $(document).ready(function() {
             $editCharStatus = false;
         }
 
-
     });
 
     // END Character Edit Button Code
+
+    // Enable Fields for New Character
+    let $queryType = $('#queryType');
+
+    if ($queryType.prop("value") === "insert") {
+        $("input").prop("disabled", false);
+        $('textarea').prop("disabled", false);
+    }
+
+    let $deleteButton = $('#deleteChar');
+
+    $deleteButton.click(function(e){
+
+        $("input").prop("disabled", false);
+        $('textarea').prop("disabled", false);
+
+    });
 
 });
