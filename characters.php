@@ -73,11 +73,11 @@
 $queryType
 <div class = "sheetSection" id = "basicInfoBanner">
 <div id="basicLeft">
-    <div id="editBtn">$editBtn</div>
-    <div id="deleteBtn"><button type='submit' name='deleteChar' id='deleteChar' value='$row[characterID]'>Delete</button></div>
+<div id="editBtn">$editBtn</div>
     <h1>$characterName</h1>
     <h3>$playerName</h3>
 </div>
+<div id="deleteBtn"><button type='submit' name='deleteChar' id='deleteChar' value='$row[characterID]'>Delete</button></div>
 <div id = "basicRight">
     <div id = "basicSection1">
         <h4>Class</h4>

@@ -35,6 +35,10 @@ $(document).ready(function() {
         $("input").prop("disabled", false);
         $('textarea').prop("disabled", false);
 
+        if (!confirm('Are you sure you want to delete this character?')) {
+            e.preventDefault();
+        }
+
     });
 
 });

@@ -23,11 +23,13 @@
     float: left;
     margin-left: 3%;
     margin-top: 1%;
-    padding: 0 0 2% 0
+    padding: 0 0 2% 0;
+    position: relative;
 }
 
 #basicLeft {
     width: 30%;
+    height: auto;
     float: left;
     position: relative;
 }
@@ -184,7 +186,7 @@
 /* having isues aligning center on screen size change */
 #adjustedStats {
     width: 90%;
-    margin-left: 10%;
+    margin: auto;
 }
 
 #statsDiv h3 {

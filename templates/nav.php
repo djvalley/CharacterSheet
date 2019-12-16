@@ -9,7 +9,6 @@
     <div class="dropdown-content">
       <?php
         if (isset($_SESSION['authenticated'])) {
-          echo "<a href='/characters.php?create=1'>New Character</a>";
           $query = "SELECT characterID, characterName FROM characters
                 WHERE userID = $_SESSION[userID]";
           $characters = $pdo->query($query);
@@ -17,6 +16,7 @@
           foreach ($characters as $character) {
             echo "<a href='/characters.php?charID=$character[characterID]'>$character[characterName]</a>";
           }
+          echo "<a href='/characters.php?create=1'>New Character</a>";
         } else {
           echo "<a href='/login.php'>Login to View</a>";
         }
